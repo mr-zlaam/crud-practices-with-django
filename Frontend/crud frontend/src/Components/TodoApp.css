@@ -1,0 +1,130 @@
+.container {
+  background: gray;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mini_container {
+  border: 2px solid black;
+  height: 90vh;
+  width: 80%;
+  position: relative;
+}
+.data_controller {
+  padding: 10px;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+.data_container {
+  height: 35vh;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: 300px;
+}
+.create_note_btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 3.5rem;
+  background: #ffffffc2;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.create_note_btn:hover {
+  transition: all 0.3s ease;
+  background: #ffffff80;
+}
+.create_note_btn > span {
+  user-select: none;
+  font-size: 3rem;
+  font-weight: 800;
+}
+.modal_container {
+  position: absolute;
+  top: 0;
+  background: #a3a2a2;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+.close_modal {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.close_modal:hover {
+  background: #0000002d;
+  border-radius: 50%;
+}
+.close_modal_control {
+  height: 10vh;
+  align-items: center;
+  width: 100%;
+}
+.save {
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+}
+.save:hover {
+  background: #0000002d;
+  border-radius: 50%;
+}
+.content {
+  height: 77%;
+  width: 100%;
+  padding: 20px;
+}
+
+.title {
+  width: 100%;
+  padding: 4px;
+}
+.description {
+  width: 100%;
+  padding: 4px;
+  height: 80%;
+}
+
+.title_input,
+.description_input {
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+.title_input {
+  font-size: 27px;
+  font-weight: 900;
+}
+.description_input {
+  height: 100%;
+  font-size: 20px;
+  font-weight: 600;
+}

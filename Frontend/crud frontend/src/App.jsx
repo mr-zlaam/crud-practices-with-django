@@ -1,9 +1,12 @@
 import {} from "react";
+import TodoApp from "./Components/TodoApp";
 
 const App = () => {
   return (
     <>
-      <div className="text-red-400">App</div>
+      <div>
+        <TodoApp />
+      </div>
     </>
   );
 };

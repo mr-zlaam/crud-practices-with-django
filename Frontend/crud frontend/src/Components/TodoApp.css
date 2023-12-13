@@ -30,6 +30,7 @@
   border: 2px solid white;
   border-radius: 20px;
   width: 300px;
+  overflow: hidden;
 }
 .create_note_btn {
   position: absolute;
@@ -100,7 +101,9 @@
   width: 100%;
   padding: 20px;
 }
-
+.pointer {
+  cursor: pointer;
+}
 .title {
   width: 100%;
   padding: 4px;
@@ -121,7 +124,7 @@
 }
 .title_input {
   font-size: 27px;
-  font-weight: 900;
+  font-weight: 700;
 }
 .description_input {
   height: 100%;

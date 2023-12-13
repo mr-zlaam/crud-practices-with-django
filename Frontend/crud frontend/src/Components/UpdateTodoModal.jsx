@@ -2,11 +2,24 @@ import { useState } from "react";
 import "./TodoApp.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoMdSave } from "react-icons/io";
-const TodoModal = ({ setisModalOpen, selectedData }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+import axios from "axios";
+const UpdateTodoModal = ({
+  setEditModal,
+  title,
+  setTitle,
+  description,
+  setDescription,
+}) => {
   const modal_closer = () => {
-    return setisModalOpen(false);
+    return setEditModal(false);
+  };
+  const NoteSaver = async () => {
+    setEditModal(false);
+    // try {
+    //     await axios.patch("")
+    // } catch (error) {
+    //     console.log(error);
+    // }
   };
   return (
     <>
@@ -15,7 +28,7 @@ const TodoModal = ({ setisModalOpen, selectedData }) => {
           <div onClick={modal_closer} className="close_modal">
             <FaArrowLeft size={20} />
           </div>
-          <div onClick={modal_closer} className="save">
+          <div onClick={NoteSaver} className="save">
             <IoMdSave size={20} />
           </div>
         </div>
@@ -50,4 +63,4 @@ const TodoModal = ({ setisModalOpen, selectedData }) => {
   );
 };
 
-export default TodoModal;
+export default UpdateTodoModal;

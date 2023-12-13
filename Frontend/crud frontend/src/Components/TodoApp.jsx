@@ -3,14 +3,23 @@ import "./TodoApp.css";
 import TodoModal from "./TodoModal";
 import axios from "axios";
 import UpdateTodoModal from "./UpdateTodoModal";
-const TodoApp = ({ title, setTitle, description, setDescription }) => {
+const TodoApp = ({
+  title,
+  setTitle,
+  description,
+  setDescription,
+  NoteSaver,
+  setNote_id,
+  note_id,
+  // Delete_Note,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isData, setIsData] = useState([]);
   const [selectedData, setSelectedData] = useState([]);
   const [editModal, setEditModal] = useState(false);
   const EdithandleModal = (id) => {
     setEditModal(true);
-    // console.log(id);
+    setNote_id(id);
     const newSelectedData = isData.find((data) => {
       return data.id === id;
     });
@@ -21,6 +30,8 @@ const TodoApp = ({ title, setTitle, description, setDescription }) => {
 
   const fetchData = async () => {
     try {
+      // NoteSaver();
+      Delete_Note();
       const todos_Data = await axios.get("http://127.0.0.1:8000/v1/api/todo/");
       setIsData(todos_Data.data);
     } catch (error) {
@@ -32,6 +43,23 @@ const TodoApp = ({ title, setTitle, description, setDescription }) => {
   }, []);
   const emptyhandleModal = () => {
     setIsModalOpen(true);
+  };
+  const Delete_Note = async (id) => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/v1/api/todo/${id}/`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const Create_notes = async () => {
+    try {
+      await axios.post("http://127.0.0.1:8000/v1/api/todo/", {
+        title,
+        description,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -50,6 +78,7 @@ const TodoApp = ({ title, setTitle, description, setDescription }) => {
                     <p>{new Date(data.createdAt).toLocaleDateString()}</p>
                     <h1>{data.title}</h1>
                     <h2>{data.description}</h2>
+                    <button onClick={() => Delete_Note(data.id)}>Delete</button>
                   </div>
                 </div>
               ))}
@@ -63,6 +92,7 @@ const TodoApp = ({ title, setTitle, description, setDescription }) => {
               setIsData={setIsData}
               setisModalOpen={setIsModalOpen}
               selectedData={selectedData}
+              Create_notes={Create_notes}
             />
           )}
           {editModal && (
@@ -73,6 +103,8 @@ const TodoApp = ({ title, setTitle, description, setDescription }) => {
               setDescription={setDescription}
               title={title}
               description={description}
+              note_id={note_id}
+              NoteSaver={NoteSaver}
             />
           )}
         </div>

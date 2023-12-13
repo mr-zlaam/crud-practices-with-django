@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./TodoApp.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoMdSave } from "react-icons/io";
-const TodoModal = ({ setisModalOpen, selectedData }) => {
+const TodoModal = ({ setisModalOpen, Create_notes }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const modal_closer = () => {
@@ -15,7 +15,7 @@ const TodoModal = ({ setisModalOpen, selectedData }) => {
           <div onClick={modal_closer} className="close_modal">
             <FaArrowLeft size={20} />
           </div>
-          <div onClick={modal_closer} className="save">
+          <div onClick={Create_notes} className="save">
             <IoMdSave size={20} />
           </div>
         </div>

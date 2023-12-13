@@ -2,25 +2,21 @@ import { useState } from "react";
 import "./TodoApp.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoMdSave } from "react-icons/io";
-import axios from "axios";
 const UpdateTodoModal = ({
   setEditModal,
   title,
   setTitle,
   description,
   setDescription,
+
+  NoteSaver,
 }) => {
+  //?STATES
+
   const modal_closer = () => {
     return setEditModal(false);
   };
-  const NoteSaver = async () => {
-    setEditModal(false);
-    // try {
-    //     await axios.patch("")
-    // } catch (error) {
-    //     console.log(error);
-    // }
-  };
+
   return (
     <>
       <div className="modal_container">
